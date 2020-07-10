@@ -46,10 +46,11 @@ class BaseModel(ABC):
 
     def backward(self):
         setattr(self, "loss_{}".format(self.net_names),
-                getattr(self, "criterion_{}".format(self.net_names))(getattr(self, "output_{}".format(self.config.network_name)),
-                                                                     getattr(self,
-                                                                             "noise_label_{}".format(
-                                                                                 self.net_names))))
+                getattr(self, "criterion_{}".format(self.net_names))(
+                    getattr(self, "output_{}".format(self.config.network_name)),
+                    getattr(self,
+                            "noise_label_{}".format(
+                                self.net_names))))
         getattr(self, "loss_{}".format(self.net_names)).backward()
 
     def setup(self):
@@ -114,18 +115,32 @@ class BaseModel(ABC):
             output = getattr(self, "output_{}".format(self.net_names)).cpu()
             noise_label = getattr(self, "noise_label_{}".format(self.net_names))
             raw_label = getattr(self, "raw_label_{}".format(self.net_names))
-
-            # detect the noisy samples and mark the noisy labels
-            noise_detection = ((1 - output) * noise_label > self.config.noise_threshold) + 0
-
-            # the number of identified samples
+            """--------------------------test criterion 1------------------------------"""
+            # # detect the noisy samples and mark the noisy labels
+            # noise_detection = ((1 - output) * noise_label > self.config.noise_threshold) + 0
+            #
+            # # the number of identified samples
+            # self.pos_num += noise_detection.sum()
+            #
+            # # if there is a 1, there is a wrong prediction
+            # accuracy = noise_detection * raw_label
+            #
+            # self.correct += (noise_detection.sum() - accuracy.sum())
+            """-----------------------------------------------------------------------"""
+            """--------------------------test criterion 2-----------------------------"""
+            # find the prediction value of the real class
+            pred_real_label = torch.sum(output * noise_label, dim=1)
+            # find the max prediction value
+            pred_max_label = torch.max(output, dim=1)
+            # judge if a sample is noisy
+            noise_detection = ((pred_max_label - pred_real_label) > 0.2) + 0
+            # there is a 1, there is a noisy sample
             self.pos_num += noise_detection.sum()
-
-            # if there is a 1, there is a wrong prediction
-            accuracy = noise_detection * raw_label
-
-            self.correct += (noise_detection.sum() - accuracy.sum())
-
+            # get the ground-truth noisy samples
+            accuracy = 1 - torch.sum(raw_label * noise_label, dim=1)
+            # compute the well recognized samples
+            self.correct += int((accuracy * noise_detection).sum())
+            """-----------------------------------------------------------------------"""
     def set_test_size(self, length):
         self.test_size = length
 
