@@ -1,0 +1,352 @@
+current batch size is 128
+current batch size is 128
+current batch size is 128
+current batch size is 128
+current batch size is 128
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-02 14:56:32 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-02 14:57:06 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-02 15:00:58 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-02 15:02:20 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-02 15:02:36 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-02 15:04:35 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-02 15:06:51 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-02 15:22:13 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-02 15:26:18 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-02 15:27:30 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-02 15:28:55 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-02 15:31:13 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-03 08:47:39 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-03 08:49:52 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-03 08:50:12 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-03 08:51:02 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-03 08:51:18 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-03 08:51:34 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-03 08:52:10 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-03 08:52:37 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-03 08:52:46 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-03 09:13:52 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-03 09:18:21 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-03 09:20:12 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-03 09:22:10 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-03 09:33:30 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-03 09:34:22 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-03 09:35:03 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-03 09:36:39 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-03 09:37:08 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-03 09:37:29 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-03 09:37:52 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-03 09:38:11 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-03 09:41:06 ,learning rate : 0.0034999999999999996
+current batch size is 128
+dataset [CIFAR10] was created
+ordinary network has been created
+ce loss has been created
+common model has been created
+[Network ordinary] Total number of parameters : 0.169 M
+dataset length: 50000
+----------------------- model build complete ----------------------------
+epoch [0/60] begin at: 2020-07-03 09:42:12 ,learning rate : 0.0034999999999999996
