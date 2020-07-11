@@ -82,8 +82,3 @@ class GlobalConfig:
         the following configurations are about dropout_balance_loss
         """
         ####################################################
-
-        self.bins = 1000
-        self.dropout_scope = 400
-        self.dropout_scope_decay = 10
-        self.dropout_scope_lowest = 300
