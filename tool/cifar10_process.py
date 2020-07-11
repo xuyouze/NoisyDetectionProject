@@ -63,11 +63,7 @@ class CIFAR10Process(DataProcess):
         train_data_num = int(Y_raw.shape[0])
         test_data_num = int(Y_test.shape[0])
         for ratio in self.config.noise_ratio:
-            if ratio != 0:
-                slot = int(10 / int(10 * ratio))
-            else:
-                slot = train_data_num + 1
-
+            slot = int(10 / int(10 * ratio))
             train_data_dict = {"data": X_raw, "raw_label": Y_raw}
             test_data_dict = {"data": X_test, "raw_label": Y_test}
 
@@ -93,7 +89,7 @@ class CIFAR10Process(DataProcess):
                     Y_test_copy[i] *= 0
                     Y_test_copy[i][random] = 1
 
-            test_data_dict["noise_label"] = Y_test_copy
+            train_data_dict["noise_label"] = Y_test_copy
 
             np.save("{}{}\{}".format(self.config.dir_noise, self.config.dataset_name,
                                      "validate_data_dict_" + str(ratio) + ".npy"), test_data_dict)

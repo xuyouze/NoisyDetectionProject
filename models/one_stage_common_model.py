@@ -19,6 +19,7 @@ class CommonModel(BaseModel):
     def __init__(self, config: GlobalConfig):
         super(CommonModel, self).__init__(config)
         self.config = config
+        print(self.config.stage_one_train)
         self.net_names = config.network_name
 
         # default name is ordinary
@@ -43,7 +44,6 @@ class CommonModel(BaseModel):
             setattr(self, "loss_{}".format(self.config.network_name), None)
         else:
             self.correct = 0
-            self.pos_num = 0
 
     def forward(self):
         setattr(self, "output_{}".format(self.config.network_name),
@@ -52,14 +52,16 @@ class CommonModel(BaseModel):
 
     def set_input(self, x):
         if not self.config.stage_one_train:
+
             img, noise, raw = x
 
-            setattr(self, getattr(self, "img_{}".format(self.config.network_name)), Variable(img).cuda())
+            setattr(self, "img_{}".format(self.config.network_name), Variable(img).cuda())
 
-            setattr(self, getattr(self, "noise_label_{}".format(self.config.network_name)), Variable(noise).cuda())
+            setattr(self, "noise_label_{}".format(self.config.network_name), Variable(noise).cuda())
 
-            setattr(self, getattr(self, "raw_label_{}".format(self.config.network_name)), Variable(raw).cuda())
+            setattr(self, "raw_label_{}".format(self.config.network_name), Variable(raw).cuda())
         else:
+
 
             img, noise = x
 
@@ -73,3 +75,5 @@ class CommonModel(BaseModel):
             setattr(self, "img_{}".format(self.config.network_name), Variable(img).cuda())
 
             setattr(self, "noise_label_{}".format(self.config.network_name), Variable(noise).cuda())
+            #
+            # setattr(self, getattr(self, "raw_label_{}".format(self.config.network_name)), Variable(raw).cuda())

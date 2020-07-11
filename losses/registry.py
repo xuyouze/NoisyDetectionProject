@@ -23,12 +23,12 @@ Loss = Registry()
 # loss2 = nn.BCEWithLogitsLoss(reduction="none")(a, b).sum(0)
 #
 # print(loss)
-# print(loss2)
-import torch
-output = torch.Tensor(1, 3)
-print(output)
-output = output.double()
-label = torch.Tensor([0.4, 0.6, 0])
-label = label.double()
-noise_detection = ((output - 1) * label > 0.7) + 0
-print(((1 - label) > 0.5) + 0)
+# # print(loss2)
+# import numpy as np
+# a = [123, 124]
+# b = np.asarray(a)
+# load_file = "{}_net_{}.pth".format(1, 1)
+#
+#
+#
+# load_path = os.path.join(self.save_path, load_file)

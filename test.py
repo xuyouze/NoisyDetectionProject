@@ -6,9 +6,9 @@
 import os
 from global_config import GlobalConfig
 from datasets import *
+from models import *
 
-
-def one_stage_test():
+def test():
     os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
     config = GlobalConfig()
@@ -21,7 +21,7 @@ def one_stage_test():
 
     dataset = create_dataset(config)
 
-    model = create_dataset(config)
+    model = create_model(config)
 
     model.setup()  # load the last epoch model parameters
 
@@ -37,8 +37,5 @@ def one_stage_test():
         logger.info("[{}/{}]".format(i, total_iter))
         model.test()
 
-    logger.info("The precision is {}, the recall is {}".format(model.get_model_precison(),
+    logger.info("The precision is {}, the recall is {}".format(model.get_model_precision(),
                                                                model.get_model_recall()))
-
-def two_stage_test():
-    pass

@@ -18,9 +18,10 @@ class CIFAR10(data.Dataset):
         self.config = config
         if config.stage_one_train:
             # load the noisy training data
-            dir_data = "{}{}{}{}".format(self.config.dir_noise, self.config.dataset_name,
-                                         "\\", "train_data_dict_" + str(self.config.noise_ratio) +
-                                         ".npy")
+            # dir_data = "{}{}{}{}".format(self.config.dir_noise, self.config.dataset_name,
+            #                              "\\", "train_data_dict_" + str(self.config.noise_ratio) +
+            #                              ".npy")
+            dir_data = "{}{}.npy".format(self.config.dir_noise, "train_data_dict_" + str(self.config.noise_ratio))
             data_dict = np.load(dir_data, allow_pickle=True).item()
 
             self.data = data_dict["data"]
@@ -33,9 +34,10 @@ class CIFAR10(data.Dataset):
             ])
         elif not self.config.stage_one_validate:
             # load the clean test data (training data)
-            dir_data = "{}{}\{}".format(self.config.dir_noise, self.config.dataset_name,
-                                        "train_data_dict_" + str(self.config.noise_ratio) +
-                                        ".npy")
+            # dir_data = "{}{}\{}".format(self.config.dir_noise, self.config.dataset_name,
+            #                             "train_data_dict_" + str(self.config.noise_ratio) +
+            #                             ".npy")
+            dir_data = "{}{}.npy".format(self.config.dir_noise, "train_data_dict_" + str(self.config.noise_ratio))
             data_dict = np.load(dir_data).item()
             self.transform = transforms.Compose([
                 transforms.ToTensor(),
@@ -47,9 +49,7 @@ class CIFAR10(data.Dataset):
 
         elif self.config.stage_one_validate:
             # load data for validating model
-            dir_data = "{}{}{}{}".format(self.config.dir_noise, self.config.dataset_name,
-                                         "\\", "validate_data_dict_" + str(self.config.noise_ratio) +
-                                         ".npy")
+            dir_data = "{}{}.npy".format(self.config.dir_noise, "validate_data_dict_" + str(self.config.noise_ratio))
             data_dict = np.load(dir_data).item()
             self.transform = transforms.Compose([
                 transforms.ToTensor(),
@@ -69,8 +69,9 @@ class CIFAR10(data.Dataset):
             return img, int(self.noise_label[item].nonzero()[0])
         else:
             img = self.data[item]
+            img = Image.fromarray(np.uint8(img)).convert('RGB')
             img = self.transform(img)
-            img = Image.fromarray(img)
+            # img = Image.fromarray(img)
             return img, self.noise_label[item], self.raw_label[item]
 
     def __len__(self):

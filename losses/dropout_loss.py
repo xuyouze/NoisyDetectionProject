@@ -47,11 +47,9 @@ class DropoutLoss(nn.Module):
         return one_hit
 
 
-c = nn.CrossEntropyLoss()
+a = torch.tensor([[0.0, 1, 0.0], [3, 0, 2]])
 
-a = torch.tensor([1, 2])
-b = torch.tensor([[0.3, 0.5, 0.1],[0.3, 0.5, 0.2]])
-w = torch.tensor([[0.1, 0.3]])
-loss = c(b, a) * w
+b = torch.tensor([[0.0, 1, 0.0], [1, 0, 3]])
 
-print(loss.mean())
+b = a.argmax(dim=1)[0]
+print(b)

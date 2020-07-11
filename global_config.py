@@ -24,9 +24,11 @@ class GlobalConfig:
 
         self.save_latest_freq = 256 * 1024
 
-        self.gpu = False
+        self.gpu = True
 
         self.output_num = 10
+
+        self.current_epoch = 0
 
         self.batch_size = 128
 
@@ -34,26 +36,24 @@ class GlobalConfig:
 
         self.epoch_num = 50
 
-        self.dir_noise = "E:\\noise_data\\"
+        self.dir_noise = "/home/xuyouze/Downloads/cifar10/"
 
         self.dir_raw_data = r"E:\cifar-10-batches-py"
 
-        self.stage_one_train = True  # if true, train the model, else testing the model
+        self.stage_one_train = True # if true, train the model, else testing the model
 
         self.stage_one_validate = False
 
-        self.stage_two_train = True  # if true, train the model, else test the model
+        self.stage_two_train = False  # if true, train the model, else test the model
 
-        self.noise_ratio = [0.1, 0.2, 0.3, 0.4, 0.5]
-        # self.noise_ratio = 0.1
+        # self.noise_ratio = [0.1, 0.2, 0.3, 0.4, 0.5]
+        self.noise_ratio = 0
 
         self.dir_checkpoints = "ckp"
 
         self.last_epoch = "last"
 
         self.load_iter = 0
-
-        self.current_epoch = 0
 
         self.noise_threshold = 0.7  # the threshold for identifying noisy samples
 
@@ -69,7 +69,7 @@ class GlobalConfig:
 
         self.start_epoch = 0  # used for continuing training
 
-        self.niter_decay = 60
+        self.niter_decay = 100
 
         self.niter = 0
 
