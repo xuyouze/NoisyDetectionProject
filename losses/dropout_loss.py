@@ -46,10 +46,3 @@ class DropoutLoss(nn.Module):
             one_hit[i][int(Y[i])] = 1
         return one_hit
 
-
-a = torch.tensor([[0.0, 1, 0.0], [3, 0, 2]])
-
-b = torch.tensor([[0.0, 1, 0.0], [1, 0, 3]])
-
-b = a.argmax(dim=1)[0]
-print(b)

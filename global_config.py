@@ -40,11 +40,11 @@ class GlobalConfig:
 
         self.dir_raw_data = r"E:\cifar-10-batches-py"
 
-        self.stage_one_train = True # if true, train the model, else testing the model
+        self.stage_one_train = True  # if true, train the model, else testing the model
 
         self.stage_one_validate = False
 
-        self.stage_two_train = False  # if true, train the model, else test the model
+        self.stage_two_train = not self.stage_one_train  # if true, train the model, else test the model
 
         # self.noise_ratio = [0.1, 0.2, 0.3, 0.4, 0.5]
         self.noise_ratio = 0
@@ -77,8 +77,12 @@ class GlobalConfig:
 
         self.lr_policy = "warm_up"
 
+        self.feature_dim = 512  # the feature dimension is dimension of network's outputs
+
         ####################################################
         """
-        the following configurations are about dropout_balance_loss
+        the following configurations are used for 2-stage knn model
         """
         ####################################################
+
+        self.k = 10

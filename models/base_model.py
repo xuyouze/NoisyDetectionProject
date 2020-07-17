@@ -47,10 +47,11 @@ class BaseModel(ABC):
 
     def backward(self):
         setattr(self, "loss_{}".format(self.net_names),
-                getattr(self, "criterion_{}".format(self.net_names))(getattr(self, "output_{}".format(self.config.network_name)),
-                                                                     getattr(self,
-                                                                             "noise_label_{}".format(
-                                                                                 self.net_names))))
+                getattr(self, "criterion_{}".format(self.net_names))(
+                    getattr(self, "output_{}".format(self.config.network_name)),
+                    getattr(self,
+                            "noise_label_{}".format(
+                                self.net_names))))
         getattr(self, "loss_{}".format(self.net_names)).backward()
 
     def setup(self):
@@ -126,7 +127,8 @@ class BaseModel(ABC):
 
             pred = output.argmax(dim=1)
             label = noise_label.argmax(dim=1)
-            self.right += ((pred==label) + 0).sum()
+            self.right += ((pred == label) + 0).sum()
+            """--------------------------test criterion 1-----------------------------"""
             #
             # noise_detection = (((1 - output) * noise_label) > self.config.noise_threshold) + 0
             #
@@ -139,6 +141,7 @@ class BaseModel(ABC):
             # accuracy = noise_detection * raw_label
             #
             # self.correct += (noise_detection.sum() - accuracy.sum())
+            """-----------------------------------------------------------------------"""
             """--------------------------test criterion 2-----------------------------"""
             # find the prediction value of the real class
             pred_real_label = torch.sum(output * noise_label, dim=1)
@@ -156,7 +159,6 @@ class BaseModel(ABC):
             self.correct += (accuracy * noise_detection).sum()
             """-----------------------------------------------------------------------"""
 
-
     def set_test_size(self, length):
         self.test_size = length
 
@@ -173,7 +175,6 @@ class BaseModel(ABC):
 
     def update_learning_rate(self):
         self.scheduler.step()
-
 
     def get_model_accuracy(self):
         return float(self.right) / self.test_size

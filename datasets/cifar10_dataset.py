@@ -32,7 +32,7 @@ class CIFAR10(data.Dataset):
                 transforms.ToTensor(),
                 transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
             ])
-        elif not self.config.stage_one_validate:
+        elif not self.config.stage_one_validate or self.config.stage_two_train:
             # load the clean test data (training data)
             # dir_data = "{}{}\{}".format(self.config.dir_noise, self.config.dataset_name,
             #                             "train_data_dict_" + str(self.config.noise_ratio) +
@@ -68,6 +68,7 @@ class CIFAR10(data.Dataset):
             # print(self.noise_label[item].nonzero()[0])
             return img, int(self.noise_label[item].nonzero()[0])
         else:
+            """one-stage validate || one-stage test || two-stage train"""
             img = self.data[item]
             img = Image.fromarray(np.uint8(img)).convert('RGB')
             img = self.transform(img)

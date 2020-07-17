@@ -88,6 +88,6 @@ class OrdinaryCNN(nn.Module):
         out = self.conv3(out)
         out = self.pool3(out)
         out = out.view(out.size(0), -1)
-        feature = out
+        feature = out.clone()
         out = self.classifier(out)
         return feature, out
