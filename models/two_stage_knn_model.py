@@ -42,7 +42,6 @@ class KNNModel(TwoStageBaseModel):
         max_idx = max(bin, key=bin.get)
         if int(max_idx) == int(self.noise_labels[i].nonzero()[0]):
             return False
-
         return True
 
     def get_model_precision(self):
@@ -62,4 +61,3 @@ class KNNModel(TwoStageBaseModel):
         if int(self.outlier_marks[i]) == 1:  # if this is a outlier, ignore
             return sys.maxsize
         return (((abs(self.feature_maps[i] - self.feature_maps[j])) ** 2).sum()) ** 0.5
-
