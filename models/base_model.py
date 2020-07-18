@@ -26,6 +26,7 @@ class BaseModel(ABC):
         self.output = None
         self.precision = 0
         self.recall = 0
+        self.right = 0
         self.pos_num = 0  # the number of samples which are judged as noisy samples
 
     @abstractmethod
@@ -70,14 +71,14 @@ class BaseModel(ABC):
         self.config.logger.info('[Network %s] Total number of parameters : %.3f M' % (self.net_names, num_params / 1e6))
 
     def save_networks(self, prefix):
-        save_filename = "{}_net_{}.pth".format(prefix, self.net_names)
+        save_filename = "{}_net_{}_{}.pth".format(prefix, self.net_names, self.config.noise_ratio)
         save_path = os.path.join(self.save_path, save_filename)
         net = getattr(self, "net_{}".format(self.net_names))
         torch.save(net.module.cpu().state_dict(), save_path)
         net.cuda()
 
     def load_networks(self, prefix):
-        load_file = "{}_net_{}.pth".format(prefix, self.net_names)
+        load_file = "{}_net_{}_{}.pth".format(prefix, self.net_names, self.config.noise_ratio)
 
         load_path = os.path.join(self.save_path, load_file)
 
@@ -96,7 +97,8 @@ class BaseModel(ABC):
         return getattr(self, "optimizer_{}".format(self.net_names)).param_groups[0]["lr"]
 
     def get_model_precision(self):
-        return self.correct / self.pos_num
+        print('posnum:', self.pos_num)
+        return (self.correct + 0.0) / self.pos_num
 
     def get_model_recall(self):
         return self.correct / (self.test_size * self.config.noise_ratio)
@@ -110,19 +112,32 @@ class BaseModel(ABC):
         net.eval()
 
     def test(self):
-        with torch.no_grad:
+        with torch.no_grad():
             self.forward()
             output = getattr(self, "output_{}".format(self.net_names)).cpu()
             noise_label = getattr(self, "noise_label_{}".format(self.net_names))
             raw_label = getattr(self, "raw_label_{}".format(self.net_names))
-            """--------------------------test criterion 1------------------------------"""
-            # # detect the noisy samples and mark the noisy labels
-            # noise_detection = ((1 - output) * noise_label > self.config.noise_threshold) + 0
+
+            # detect the noisy samples and mark the noisy labels
+            output = output.double().cpu()
+
+            noise_label = noise_label.double().cpu()
+
+            raw_label = raw_label.cpu()
+
+            pred = output.argmax(dim=1)
+            label = noise_label.argmax(dim=1)
+            self.right += ((pred == label) + 0).sum()
+            """--------------------------test criterion 1-----------------------------"""
+            #
+            # noise_detection = (((1 - output) * noise_label) > self.config.noise_threshold) + 0
             #
             # # the number of identified samples
             # self.pos_num += noise_detection.sum()
             #
             # # if there is a 1, there is a wrong prediction
+            # raw_label = raw_label.double().cpu()
+            # noise_detection = noise_detection.double()
             # accuracy = noise_detection * raw_label
             #
             # self.correct += (noise_detection.sum() - accuracy.sum())
@@ -131,7 +146,7 @@ class BaseModel(ABC):
             # find the prediction value of the real class
             pred_real_label = torch.sum(output * noise_label, dim=1)
             # find the max prediction value
-            pred_max_label = torch.max(output, dim=1)
+            pred_max_label = torch.max(output, dim=1)[0]
             # judge if a sample is noisy
             noise_detection = ((pred_max_label - pred_real_label) > 0.2) + 0
             # there is a 1, there is a noisy sample
@@ -139,14 +154,18 @@ class BaseModel(ABC):
             # get the ground-truth noisy samples
             accuracy = 1 - torch.sum(raw_label * noise_label, dim=1)
             # compute the well recognized samples
-            self.correct += int((accuracy * noise_detection).sum())
+            accuracy = accuracy.double()
+            noise_detection = noise_detection.double()
+            self.correct += (accuracy * noise_detection).sum()
             """-----------------------------------------------------------------------"""
+
     def set_test_size(self, length):
         self.test_size = length
 
     def clear_precision(self):
         self.correct = 0
         self.pos_num = 0
+        self.right = 0
 
     def create_network_model(self):
         return create_network_model(config=self.config)
@@ -156,3 +175,6 @@ class BaseModel(ABC):
 
     def update_learning_rate(self):
         self.scheduler.step()
+
+    def get_model_accuracy(self):
+        return float(self.right) / self.test_size
