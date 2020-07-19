@@ -97,7 +97,6 @@ class BaseModel(ABC):
         return getattr(self, "optimizer_{}".format(self.net_names)).param_groups[0]["lr"]
 
     def get_model_precision(self):
-        print('posnum:', self.pos_num)
         return (self.correct + 0.0) / self.pos_num
 
     def get_model_recall(self):
@@ -126,7 +125,9 @@ class BaseModel(ABC):
             raw_label = raw_label.cpu()
 
             pred = output.argmax(dim=1)
-            label = noise_label.argmax(dim=1)
+
+            label = raw_label.argmax(dim=1)
+
             self.right += ((pred == label) + 0).sum()
             """--------------------------test criterion 1-----------------------------"""
             #
@@ -144,19 +145,26 @@ class BaseModel(ABC):
             """-----------------------------------------------------------------------"""
             """--------------------------test criterion 2-----------------------------"""
             # find the prediction value of the real class
+            # 这里是找到对真实标签（带有噪声）的预测值，这里的结果是一个列向量
             pred_real_label = torch.sum(output * noise_label, dim=1)
             # find the max prediction value
+            # 这里是获取最大预测值的类别，这里为一个列向量
             pred_max_label = torch.max(output, dim=1)[0]
             # judge if a sample is noisy
+            # 噪声判断标准，结果为一个列向量（只有0、1）
             noise_detection = ((pred_max_label - pred_real_label) > 0.2) + 0
             # there is a 1, there is a noisy sample
+            # 有多少 “1” 就有多少被判为噪声
             self.pos_num += noise_detection.sum()
             # get the ground-truth noisy samples
-            accuracy = 1 - torch.sum(raw_label * noise_label, dim=1)
+            # 这里是获取一个对比，raw与noise相乘可以获取哪些是噪声，被 1 减去后噪声则为 1；comp为列向量
+            comp = 1 - torch.sum(raw_label * noise_label, dim=1)
             # compute the well recognized samples
-            accuracy = accuracy.double()
+            comp = comp.double()
+
             noise_detection = noise_detection.double()
-            self.correct += (accuracy * noise_detection).sum()
+            #使用comp与noise detection对比后可知哪些被正确判断
+            self.correct += (comp * noise_detection).sum()
             """-----------------------------------------------------------------------"""
 
     def set_test_size(self, length):
